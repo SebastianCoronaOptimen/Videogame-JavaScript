@@ -211,7 +211,7 @@ function moveByKeys(event){
 }
 
 function moveUp(){
-    if(playerPosition.y - elementSize*2 >= 0 ) playerPosition.y -= elementSize;
+    if(playerPosition.y - elementSize*2 >= -1 ) playerPosition.y -= elementSize;
     startGame()
 }
 function moveRight(){
