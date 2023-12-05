@@ -151,6 +151,10 @@ function gameWin(){
         resultP.innerHTML = "Primer record"
     }
     console.log({recordTime, playerTime})
+    setTimeout(() => {
+        location.reload()
+    },2000)
+    
 }
 
 function levelLose(){
@@ -162,6 +166,7 @@ function levelLose(){
         level = 0;
         lives = 3;
         timeStart = undefined
+        location.reload()
     }
     setTimeout(() => {
         playerPosition.x = undefined,
