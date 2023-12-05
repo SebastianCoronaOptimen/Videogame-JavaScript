@@ -42,6 +42,7 @@ function setCanvasSize(){
     } else {
         canvasSize = window.innerHeight * 0.7
     }
+    canvasSize = Number(canvasSize.toFixed(0))
 
     canvas.setAttribute('width', canvasSize)
     canvas.setAttribute('height', canvasSize)
@@ -90,12 +91,12 @@ function startGame() {
                     playerPosition.x = posX
                     playerPosition.y = posY
                 } else if (col == 'I'){
-                    giftPosition.x = posX.toFixed(2);
-                    giftPosition.y = posY.toFixed(2);
+                    giftPosition.x = posX;
+                    giftPosition.y = posY;
                 } else if (col == 'X'){
                     bombPosition.push({
-                        x: posX.toFixed(2),
-                        y: posY.toFixed(2)
+                        x: posX,
+                        y: posY
                     })
                 }
             }
@@ -106,12 +107,12 @@ function startGame() {
 }
 
 function movePlayer(){
-    const giftColisionX = Math.abs(playerPosition.x.toFixed(2)) == giftPosition.x;
-    const giftColisionY = Math.abs(playerPosition.y.toFixed(2)) == giftPosition.y;
+    const giftColisionX = Math.abs(playerPosition.x) == giftPosition.x;
+    const giftColisionY = Math.abs(playerPosition.y) == giftPosition.y;
     const giftColision = giftColisionX && giftColisionY;
     const bombColision = bombPosition.find(bomb =>{
-        const bombColisionX = bomb.x == playerPosition.x.toFixed(2);
-        const bombColisionY = bomb.y == playerPosition.y.toFixed(2);
+        const bombColisionX = bomb.x == playerPosition.x;
+        const bombColisionY = bomb.y == playerPosition.y;
         return bombColisionX && bombColisionY
     })
     if (giftColision){
